@@ -14,6 +14,6 @@ The R code in these files produce the results in the manuscript "High variabilit
 
 “SupplementFigures.R” contains R code that produces all the figures in the supplementary results of the manuscript. Some plotting display commands may be specific to R for Windows.
 
- “TableS1.R” and “TableS2.R” contain R code that produces the results in Tables S1 and S2 in the supplementary material of the manuscript.
+ “TableS4.R” and “TableS5.R” contain R code that produces the results in Tables S4 and S5 in the supplementary material of the manuscript.
 
 
