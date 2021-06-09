@@ -1,7 +1,7 @@
 rm(list=ls())
 
-optPar <- c(pCom = 0.003851334, pHouse = 0.354171115, dHouse = 0.535584255,
-	      phiV = 0.762914827, phiA = 0.852187169, piV = 0.999311905, piA = 0.992963410)
+optPar <- c(pCom = 0.004078679, pHouse = 0.363258707, dHouse = 0.433838990,
+		phiV = 0.724447576, phiA = 0.855594551, piV = 0.999356963, piA = 0.993141399)
 
 boots <- read.table('bootstrapResults.txt',header=TRUE)
 
