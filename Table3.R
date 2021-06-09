@@ -1,8 +1,8 @@
 rm(list=ls())
 
 #Results from Table 1:
-pH_mle <- 0.354171115
-dH_mle <- 0.535584255
+pH_mle <- 0.363258707
+dH_mle <- 0.433838990
 
 dataFileName <- 'analysisData.txt'
 source('prepareData.R')
