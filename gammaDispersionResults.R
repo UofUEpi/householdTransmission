@@ -1,7 +1,7 @@
 rm(list=ls())
 
-pH <- 0.35342938
-dH <- 0.54052428
+pH <- 0.363258707
+dH <- 0.433838990
 
 getk <- function(pH,dH){
 	ifelse(dH==0, 0, ifelse(dH==Inf,Inf,
