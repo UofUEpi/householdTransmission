@@ -4,29 +4,29 @@ source('table1MLE.R')
 
 llrs <- Vectorize(llRatioStat)
 
-plotVals <- rbind(pCom = seq(0.0025,0.0055,len=30),
+plotVals <- rbind(pCom = seq(0.0026,0.0056,len=30),
 			pHouse = seq(0.2,0.55,len=30),
-			dHouse = exp(seq(0,log(7),len=30))-1,
-			phiV = seq(0.6,0.9,len=30),
-			phiA = seq(0.7,0.96,len=30),
+			dHouse = exp(seq(0,log(5),len=30))-1,
+			phiV = seq(0.57,0.87,len=30),
+			phiA = seq(0.71,0.96,len=30),
 			piA = seq(0.9909,0.995,len=30),
 			piV = seq(0.9984,1,len=30))
 
-plotLim <- rbind(pCom = c(0.0025,0.0055),
+plotLim <- rbind(pCom = c(0.0026,0.0056),
 		     pHouse = c(0.2,0.55),
-		     dHouse = c(0,6),
-		     phiV = c(0.6,0.9),
-		     phiA = c(0.7,0.96),
+		     dHouse = c(0,4),
+		     phiV = c(0.57,0.87),
+		     phiA = c(0.71,0.96),
 		     piA = c(0.9909,0.995),
 		     piV = c(0.9985,1))
 
-lab <- c(pCom = 'pc',
-	   pHouse = 'ph',
-	   dHouse = 'dh',
-	   phiV = 'phiV',
-	   phiA = 'phiA',
-	   piA = 'piA',
-	   piV = 'piV')
+lab <- c(pCom = expression(italic(p[c])),
+	   pHouse = expression(italic(p[h])),
+	   dHouse = expression(italic(d[h])),
+	   phiV = expression(italic(phi[V])),
+	   phiA = expression(italic(phi[A])),
+	   piA = expression(italic(pi[A])),
+	   piV = expression(italic(pi[V])))
 
 getZ <- function(xName,yName,f) outer(plotVals[xName,],plotVals[yName,], f)
 
@@ -129,6 +129,7 @@ plotContour('piV','dHouse',t(z_dHpiV),q2)
 plotContour('piV','phiV',t(z_phiVpiV),q2)
 plotContour('piV','phiA',t(z_phiApiV),q2)
 plotContour('piV','piA',t(z_piApiV),q2)
+
 
 
 
