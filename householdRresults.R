@@ -1,7 +1,7 @@
 rm(list=ls())
 
-pHouse <- 0.35342938
-dHouse <- 0.54052428
+pHouse <- 0.363258707
+dHouse <- 0.433838990
 
 dbetabinom <- function (y, size, p, d){
     a <- d * p
@@ -9,8 +9,7 @@ dbetabinom <- function (y, size, p, d){
     exp(lbeta(y + a, size - y + b) - lbeta(a, b) + lchoose(size, y))
 }
 
-
-num <- c(1376,3223,1385,1228,887,567,258,87,50,17,7,5,1)
+num <- c(1402,3284,1414,1237,890,569,259,88,50,18,7,5,1)
 
 N <- 13
 i <- 1:N
@@ -56,7 +55,6 @@ getRhStar <- function(pHouse,dHouse){
 	}
 	RhStar
 }
-
 
 RhStar <- getRhStar(pHouse,dHouse)
 
