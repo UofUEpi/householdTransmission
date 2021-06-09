@@ -48,6 +48,6 @@ piVCI <- getCI(ciFun_piV,'piV',c(0.5,1))
 cis <- rbind(pCom = pComCI, dCom = dComCI, pHouse = pHouseCI, dHouse = dHouseCI, 
 	 	 phiV = phiVCI, phiA = phiACI, piV = piVCI,piA = piACI)
 
-TableS1 <- cbind(mle = optAll, low = cis[,1], high = cis[,2])
+TableS4 <- cbind(mle = optAll, low = cis[,1], high = cis[,2])
 
-print(TableS1)
+print(TableS4)
