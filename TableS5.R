@@ -4,16 +4,19 @@ dataFileName <- 'analysisData.txt'
 source('prepareData.R')
 source('MLEfunctions.R')
 
-optAll <- c(pCom = 0.005198326, dCom = 2.353515625, pHouse = 0.277844661,
-		dHouse = 0.300781250, phiV = 0.758066320, phiA = 0.864529682,
-		piV = 0.999216578, piA = 0.993014304) 
+optAll <- c(pCom = 0.005601331, dCom = 2.134400606, pHouse = 0.274582837,
+		dHouse = 0.214906216, phiV = 0.720328134, phiA = 0.870334182,
+		piV = 0.999249548, piA = 0.993197326)
 
-optDcInf <- c(pCom = 0.003851334, dCom = Inf, pHouse = 0.354171115,
-		  dHouse = 0.535584255, phiV = 0.762914827, phiA = 0.852187169,
-		  piV = 0.999311905, piA = 0.992963410) 
+optDcInf <- c(pCom = 0.004078679, dCom = Inf, pHouse = 0.363258707,
+		  dHouse = 0.433838990,	phiV = 0.724447576, phiA = 0.855594551,
+		  piV = 0.999356963, piA = 0.993141399)
 
 solAllValue <- -do.call(getLL,as.list(optAll))
 solDcInfValue <- -do.call(getLL,as.list(optDcInf))
+
+bicAll <- 8*log(9224) + 2*solAllValue
+bicDcInf <- 7*log(9224) + 2*solDcInfValue
 
 getSolDh0 <- function(pHfix) getSol(c(pCom=0.01,dCom=1,phiV=0.3,phiA=0.8,piV=0.999,piA=0.995), 
 						function(x) -getLL(x[1],x[2],pHfix,0,x[3],x[4],x[5],x[6]))
@@ -39,16 +42,18 @@ PvalDh0 <- (1-pchisq(2*(solDh0$value-solAllValue), df=1))
 PvalDhInf <- (1-pchisq(2*(solDhInf$value-solAllValue), df=1))
 PvalPh0 <- (1-pchisq(2*(solPh0$value-solAllValue), df=2))
 
-TableS2opt <- rbind(optAll,
+TableS5opt <- rbind(optAll,
 			  optDcInf,
 			  c(solDh0$par[1:3],dHouse=0,solDh0$par[4:7]),
 			  c(solDhInf$par[1:3],dHouse=Inf,solDhInf$par[4:7]),
 			  c(solPh0$par[1:2],pHouse=0,dHouse=NA,solPh0$par[3:6]))
 
-TableS2 <- cbind(TableS2opt,
+TableS5 <- cbind(TableS5opt,
 	     	     logLik = -c(solAllValue,solDcInfValue,solDh0$value,solDhInf$value,solPh0$value),
 		     pValue = c(NA,PvalDcInf,PvalDh0,PvalDhInf,PvalPh0))
 
-rownames(TableS2) <- c('none','dC=Inf','dH=0','dH=Inf','pH=0')
+rownames(TableS5) <- c('none','dC=Inf','dH=0','dH=Inf','pH=0')
 
-print(TableS2)
+print(TableS5)
+print(c(BICaltModel=bicAll,BICmainTextModel=bicDcInf))
+
