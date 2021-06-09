@@ -74,8 +74,9 @@ getSimTestNAS <- function(pC,pH,dH,phiV,phiA,piV,piA){
 		    list(n=df$n,a=df$a,s=df$s,aPP=df$aPP,aPN=df$aPN,aNP=df$aNP,sP=df$sP),sum)
 }
 
+#Before running, create folder named "simData" in active folder
 for(sim in 1:500){
-	simData <- getSimTestNAS(0.003851334, 0.354171115, 0.535584255, 0.762914827, 0.852187169, 0.999311905, 0.992963410)	
+	simData <- getSimTestNAS(0.004078679, 0.363258707, 0.433838990, 0.724447576, 0.855594551, 0.999356963, 0.993141399)	
 	fileName <- paste0('simData/simData',sim,'.txt')
 	write.table(simData,fileName,quote=FALSE,row.names=FALSE)
 }
