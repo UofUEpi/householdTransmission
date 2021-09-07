@@ -15,8 +15,10 @@ optDcInf <- c(pCom = 0.004078679, dCom = Inf, pHouse = 0.363258707,
 solAllValue <- -do.call(getLL,as.list(optAll))
 solDcInfValue <- -do.call(getLL,as.list(optDcInf))
 
-bicAll <- 8*log(9224) + 2*solAllValue
-bicDcInf <- 7*log(9224) + 2*solDcInfValue
+getAIC <- function(LL, numParam) 2*(numParam - LL)
+
+aicAll <- getAIC(-solAllValue, 8)
+aicDcInf <- getAIC(-solDcInfValue, 7)
 
 getSolDh0 <- function(pHfix) getSol(c(pCom=0.01,dCom=1,phiV=0.3,phiA=0.8,piV=0.999,piA=0.995), 
 						function(x) -getLL(x[1],x[2],pHfix,0,x[3],x[4],x[5],x[6]))
@@ -55,5 +57,4 @@ TableS5 <- cbind(TableS5opt,
 rownames(TableS5) <- c('none','dC=Inf','dH=0','dH=Inf','pH=0')
 
 print(TableS5)
-print(c(BICaltModel=bicAll,BICmainTextModel=bicDcInf))
-
+print(c(AICaltModel=aicAll,AICmainTextModel=aicDcInf))
