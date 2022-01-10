@@ -1,4 +1,8 @@
-The R code in these files produce the results in the manuscript "High variability in transmission of SARS-CoV-2 within households and implications for control" 
+# High variability in transmission of SARS-CoV-2 within households and implications for control
+
+The R code in these files produce the results in the manuscript available [here](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0259097).
+
+> Toth DJA, Beams AB, Keegan LT, Zhang Y, Greene T, et al. (2021) High variability in transmission of SARS-CoV-2 within households and implications for control. PLOS ONE 16(11): e0259097. https://doi.org/10.1371/journal.pone.0259097
 
 "analysisData.txt" contains the household data used by the analyses in the manuscript. The column definitions are described in the main text of the manuscript.
 
